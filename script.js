@@ -45,6 +45,11 @@ const restaurant = {
       `Here is your declicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredient) {
+    console.log(`${mainIngredient}`);
+    console.log(`${otherIngredient}`);
+  },
 };
 
 // restaurant.orderDelivery({
@@ -127,16 +132,16 @@ const restaurant = {
 
 // console.log(...newArr);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
 
 // Copy array
-const mainMenuCopy = [...restaurant.mainMenu];
+// const mainMenuCopy = [...restaurant.mainMenu];
 // console.log(mainMenuCopy);
 
 // Join 2 arrays
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
 
 // Iterables: arrays, strings, maps, sets, NOT objects
 
@@ -156,11 +161,49 @@ console.log(menu);
 // restaurant.orderPasta(...ingredients);
 
 // OBJECTS
-const newRestaurant = { foundedIn: 1997, ...restaurant, founder: 'Douglas' };
-console.log(newRestaurant);
+// const newRestaurant = { foundedIn: 1997, ...restaurant, founder: 'Douglas' };
+// console.log(newRestaurant);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristorante Roma';
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante Roma';
 
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
+
+// REST PATTERNS AND PARAMETERS
+// 1) Destructuring
+// Spread, because on RIGHT side of =
+const arr = [1, 2, 3, ...[4, 5]];
+
+// REST, because on the LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// Objects (REST)
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(weekDays);
+
+// 2) Functions
+const add = function (...numbers) {
+  let total = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+    // console.log(numbers[i]);
+  }
+  console.log(total);
+};
+add(1, 2);
+add(1, 2, 5);
+add(1, 2, 4, 5);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
