@@ -173,37 +173,65 @@ const restaurant = {
 // REST PATTERNS AND PARAMETERS
 // 1) Destructuring
 // Spread, because on RIGHT side of =
-const arr = [1, 2, 3, ...[4, 5]];
+// const arr = [1, 2, 3, ...[4, 5]];
 
 // REST, because on the LEFT side of =
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
 
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood);
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
 
 // Objects (REST)
-const { sat, ...weekDays } = restaurant.openingHours;
-console.log(weekDays);
+// const { sat, ...weekDays } = restaurant.openingHours;
+// console.log(weekDays);
 
-// 2) Functions
-const add = function (...numbers) {
-  let total = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    total += numbers[i];
-    // console.log(numbers[i]);
-  }
-  console.log(total);
-};
-add(1, 2);
-add(1, 2, 5);
-add(1, 2, 4, 5);
+// // 2) Functions
+// const add = function (...numbers) {
+//   let total = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     total += numbers[i];
+//     // console.log(numbers[i]);
+//   }
+//   console.log(total);
+// };
+// add(1, 2);
+// add(1, 2, 5);
+// add(1, 2, 4, 5);
 
-const x = [23, 5, 7];
-add(...x);
+// const x = [23, 5, 7];
+// add(...x);
 
-restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
-restaurant.orderPizza('mushrooms');
+// restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
+// restaurant.orderPizza('mushrooms');
+
+// SHORT CIRCUITING (&& and ||)
+console.log('---------- OR ----------');
+// User ANY data type, return ANY datat type, short-circuiting
+// console.log(3 || 'Jonas');
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
+
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('---------- AND ----------');
+console.log(0 && 'Douglas');
+console.log(7 && 'Douglas');
+console.log('Hello' && 23 && null && 'douglas');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.order && restaurant.orderPizza('mushrooms', 'spinach');
