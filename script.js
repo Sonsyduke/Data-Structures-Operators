@@ -248,15 +248,15 @@ const restaurant = {
 
 // LOGICAL ASSIGNMENT OPERATORS
 
-const rest1 = {
-  name: 'Capri',
-  numGuests: 0,
-};
+// const rest1 = {
+//   name: 'Capri',
+//   numGuests: 0,
+// };
 
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
-};
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
 
 // LOGICAL OR ASSIGNMENT OPERATOR
 // rest1.numGuests = rest1.numGuests || 10;
@@ -267,15 +267,26 @@ const rest2 = {
 
 // NULLISH ASSIGNMENT OPERATOR
 
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
 
 // rest1.owner = rest1.owner && '<ANONYYMOUS>';
 // rest2.owner = rest2.owner && '<ANONYYMOUS>';
 
 // LOGICAL AND ASSIGNMENT OPERATOR
-rest1.owner &&= '<ANONYYMOUS>';
-rest2.owner &&= '<ANONYYMOUS>';
+// rest1.owner &&= '<ANONYYMOUS>';
+// rest2.owner &&= '<ANONYYMOUS>';
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
+
+// FOR ...OF LOOP
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const item of menu.entries()) {
+  console.log(item);
+}
