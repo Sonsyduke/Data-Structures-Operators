@@ -53,6 +53,34 @@ const restaurant = {
   },
 };
 
+// LOOPING OBJECTS: OBJECT KEYS< VALUES AND ENTRIES
+for (const day of Object.keys(hours)) {
+  console.log(day);
+}
+
+// OPTIONAL CHAINING (?.)
+// if (restaurant.hours && restaurant.hours.mon) {
+//   console.log(restaurant.hours.mon.open);
+// }
+
+// WITH OPTIONAL CHAINING
+// console.log(restaurant.hours?.mon?.open);
+
+// EXAMPLE
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// for (const day of days) {
+//   const open = restaurant.hours[day]?.open ?? 'closed';
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+
+// Methods
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// Array
+// const users = [{ name: 'Douglas', email: 'hello@douglas.io' }];
+// console.log(users[0]?.name ?? 'User array empty');
+
 // restaurant.orderDelivery({
 //   time: '23:30',
 //   address: 'Via del Sole, 21',
