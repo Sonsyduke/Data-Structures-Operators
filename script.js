@@ -209,7 +209,7 @@ const restaurant = {
 // restaurant.orderPizza('mushrooms');
 
 // SHORT CIRCUITING (&& and ||)
-console.log('---------- OR ----------');
+// console.log('---------- OR ----------');
 // User ANY data type, return ANY datat type, short-circuiting
 // console.log(3 || 'Jonas');
 // console.log('' || 'Jonas');
@@ -237,11 +237,45 @@ console.log('---------- OR ----------');
 // restaurant.order && restaurant.orderPizza('mushrooms', 'spinach');
 
 // NULLISH COALESCING OPERATOR
-restaurant.numGuests = 0;
+// restaurant.numGuests = 0;
 
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
 // Nullish: null and undefined (NOT 0 or "");
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
+
+// LOGICAL ASSIGNMENT OPERATORS
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// LOGICAL OR ASSIGNMENT OPERATOR
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// NULLISH ASSIGNMENT OPERATOR
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && '<ANONYYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYYMOUS>';
+
+// LOGICAL AND ASSIGNMENT OPERATOR
+rest1.owner &&= '<ANONYYMOUS>';
+rest2.owner &&= '<ANONYYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
