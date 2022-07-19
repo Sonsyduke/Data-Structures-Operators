@@ -218,20 +218,30 @@ console.log('---------- OR ----------');
 
 // console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-restaurant.numGuests = 23;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+// restaurant.numGuests = 23;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
 
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
 
-console.log('---------- AND ----------');
-console.log(0 && 'Douglas');
-console.log(7 && 'Douglas');
-console.log('Hello' && 23 && null && 'douglas');
+// console.log('---------- AND ----------');
+// console.log(0 && 'Douglas');
+// console.log(7 && 'Douglas');
+// console.log('Hello' && 23 && null && 'douglas');
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-}
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
 
-restaurant.order && restaurant.orderPizza('mushrooms', 'spinach');
+// restaurant.order && restaurant.orderPizza('mushrooms', 'spinach');
+
+// NULLISH COALESCING OPERATOR
+restaurant.numGuests = 0;
+
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or "");
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
