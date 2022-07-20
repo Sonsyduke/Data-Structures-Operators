@@ -53,30 +53,64 @@ const restaurant = {
   },
 };
 
-// LOOPING OBJECTS: OBJECT KEYS< VALUES AND ENTRIES
+// LOOPING OBJECTS: OBJECT KEYS VALUES AND ENTRIES
 // Property names
-const properties = Object.keys(hours);
-console.log(properties);
+// const properties = Object.keys(hours);
+// console.log(properties);
 
-let openStr = `We are open on ${properties.length} days: `;
+// let openStr = `We are open on ${properties.length} days: `;
 
-for (const day of properties) {
-  openStr += `${day}, `;
-}
+// for (const day of properties) {
+//   openStr += `${day}, `;
+// }
 
-console.log(openStr);
+// console.log(openStr);
 
 // Property values
-const values = Object.values(hours);
-console.log(values);
+// const values = Object.values(hours);
+// console.log(values);
 
 // Entire object
-const entries = Object.entries(hours);
-console.log(entries);
+// const entries = Object.entries(hours);
+// console.log(entries);
 
-for (const [key, { open, close }] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
+
+// SETS
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet);
+
+console.log(new Set('Jonas'));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+
+for (const order of ordersSet) {
+  console.log(order);
 }
+
+// EXAMPLE
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
 
 // OPTIONAL CHAINING (?.)
 // if (restaurant.hours && restaurant.hours.mon) {
