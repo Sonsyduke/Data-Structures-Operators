@@ -56,7 +56,49 @@ const restaurant = {
   orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your declicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
+
+// ===================================
+// REST Operator and Parameters
+
+// 1) Destrucuturing
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(weekDays);
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(2, 3, 4, 52);
+add(2, 3, 34, 2, 3, 1);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+
 // restaurant.orderDelivery({
 //   time: '22:30',
 //   address: 'Via del Sole, 21',
