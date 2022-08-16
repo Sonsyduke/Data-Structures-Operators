@@ -63,15 +63,28 @@ const restaurant = {
   },
 };
 
-const rest1 = {
-  name: 'Capri',
-  // numGuests: 20,
-  numGuests: 0,
-};
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
-};
+// ===================================
+// for ... of loops
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) {
+  console.log(item);
+}
+
+// Getting the index
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+// const rest1 = {
+// name: 'Capri',
+// numGuests: 20,
+//   numGuests: 0,
+// };
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
 
 // ===================================
 // Logical Assignment Operators
@@ -84,17 +97,17 @@ const rest2 = {
 // rest2.numGuests ||= 10;
 
 // Nullish assignment operator (Null or undefined)
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
 
 // AND assignment operator
 // rest1.owner = rest1.owner && '<ANONYMOUS>';
 // rest2.owner = rest2.owner && '<ANONYMOUS>';
-rest1.owner &&= '<ANONYMOUS>';
-rest2.owner &&= '<ANONYMOUS>';
+// rest1.owner &&= '<ANONYMOUS>';
+// rest2.owner &&= '<ANONYMOUS>';
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
 
 // ===================================
 // Nullish Coalescing Operator
