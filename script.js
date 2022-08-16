@@ -6,20 +6,20 @@
 
 // Data needed for first part of the section
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-// const hours = {
-//   [weekdays[3]]: {
-//     open: 12,
-//     close: 22,
-//   },
-//   [weekdays[4]]: {
-//     open: 11,
-//     close: 23,
-//   },
-//   [weekdays[5]]: {
-//     open: 0, // Open 24 hours
-//     close: 24,
-//   },
-// };
+const hours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 
 const restaurant = {
   name: 'Classico Italiano',
@@ -28,20 +28,8 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  // ES^ enhanced object literals
+  hours,
 
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
@@ -65,16 +53,16 @@ const restaurant = {
 
 // ===================================
 // for ... of loops
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-for (const item of menu) {
-  console.log(item);
-}
+// for (const item of menu) {
+//   console.log(item);
+// }
 
 // Getting the index
-for (const [i, el] of menu.entries()) {
-  console.log(`${i + 1}: ${el}`);
-}
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
 
 // const rest1 = {
 // name: 'Capri',
