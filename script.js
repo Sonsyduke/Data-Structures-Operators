@@ -52,38 +52,70 @@ const restaurant = {
 };
 
 // ===================================
+// Maps
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+const arr = [1, 2];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr));
+
+// ===================================
 // Sets
-const orderSet = new Set([
-  'pasta',
-  'pizza',
-  'pizza',
-  'risotto',
-  'pasta',
-  'pizza',
-]);
-console.log(orderSet);
+// const orderSet = new Set([
+//   'pasta',
+//   'pizza',
+//   'pizza',
+//   'risotto',
+//   'pasta',
+//   'pizza',
+// ]);
+// console.log(orderSet);
 
-console.log(new Set('Douglas'));
-console.log(orderSet.size);
-console.log(orderSet.has('pizza'));
-console.log(orderSet.has('bread'));
-orderSet.add('Garlic Bread');
-orderSet.add('Garlic Bread');
-orderSet.delete('risotto');
+// console.log(new Set('Douglas'));
+// console.log(orderSet.size);
+// console.log(orderSet.has('pizza'));
+// console.log(orderSet.has('bread'));
+// orderSet.add('Garlic Bread');
+// orderSet.add('Garlic Bread');
+// orderSet.delete('risotto');
 // orderSet.clear();
-console.log(orderSet);
+// console.log(orderSet);
 
-for (const order of orderSet) {
-  console.log(order);
-}
+// for (const order of orderSet) {
+//   console.log(order);
+// }
 
 // Example
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
-const staffUnique = [...new Set(staff)];
-console.log(staff);
-console.log(staffUnique);
-console.log(new Set(staff).size);
-console.log(new Set('douglas lombard').size);
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// const staffUnique = [...new Set(staff)];
+// console.log(staff);
+// console.log(staffUnique);
+// console.log(new Set(staff).size);
+// console.log(new Set('douglas lombard').size);
 
 // ===================================
 // Looping Objects
