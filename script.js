@@ -50,59 +50,79 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+// ===================================
+// STRING CHALLENGE
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, codeFrom, codeTo, hour] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '#' : ''} ${type.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(codeFrom)} to ${getCode(codeTo)} ${hour.replace(
+    ':',
+    'h'
+  )}`.padStart(43);
+  console.log(output);
+}
+
 // ===================================
 // WORKING WITH STRINGS - PART 3
 
 // Split and Join
-console.log('a+very+nice+string'.split('+'));
-console.log('Douglas Lombard'.split(' '));
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Douglas Lombard'.split(' '));
 
-const [firstName, lastName] = 'Douglas Lombard'.split(' ');
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName);
+// const [firstName, lastName] = 'Douglas Lombard'.split(' ');
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
 
-function capitalizename(name) {
-  const names = name.split(' ');
-  const namesUpper = [];
+// function capitalizename(name) {
+//   const names = name.split(' ');
+//   const namesUpper = [];
 
-  for (const n of names) {
-    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
-    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
-  }
-  console.log(namesUpper.join(' '));
-}
+//   for (const n of names) {
+// namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
+//   console.log(namesUpper.join(' '));
+// }
 
-capitalizename('jessica ann smit davis');
-capitalizename('douglas lombard');
+// capitalizename('jessica ann smit davis');
+// capitalizename('douglas lombard');
 
 // Padding
-const message = 'Go to gate 23!';
-console.log(message.padStart(25, '+').padEnd(30, '+'));
-console.log('Jonas'.padStart(25, '+').padEnd(30, '+'));
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '+').padEnd(30, '+'));
+// console.log('Jonas'.padStart(25, '+').padEnd(30, '+'));
 
 // Real world example
-function maskCreditCard(number) {
-  // This works because if one operate is a string it will convert the other
-  const str = number + '';
-  const last = str.slice(-4);
-  return last.padStart(str.length, '*');
-}
+// function maskCreditCard(number) {
+// This works because if one operate is a string it will convert the other
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// }
 
-console.log(maskCreditCard(4316284));
-console.log(maskCreditCard(43194738456284));
-console.log(maskCreditCard('3462834612647'));
+// console.log(maskCreditCard(4316284));
+// console.log(maskCreditCard(43194738456284));
+// console.log(maskCreditCard('3462834612647'));
 
 // Repeat
-const message2 = 'Bad Weather...All Departues Delayed... ';
-console.log(message2.repeat(5));
+// const message2 = 'Bad Weather...All Departues Delayed... ';
+// console.log(message2.repeat(5));
 
-function planesInLine(n) {
-  console.log(`There are ${n} planes in line ${'N'.repeat(n)}`);
-}
+// function planesInLine(n) {
+//   console.log(`There are ${n} planes in line ${'N'.repeat(n)}`);
+// }
 
-planesInLine(5);
-planesInLine(3);
-planesInLine(12);
+// planesInLine(5);
+// planesInLine(3);
+// planesInLine(12);
 
 // ===================================
 // WORKING WITH STRINGS - PART 2
