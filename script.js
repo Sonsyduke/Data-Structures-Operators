@@ -51,73 +51,127 @@ const restaurant = {
   },
 };
 // ===================================
-// WORKING WITH STRINGS - PART 2
-const airline = 'TAP Air Portugal';
+// WORKING WITH STRINGS - PART 3
 
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
+// Split and Join
+console.log('a+very+nice+string'.split('+'));
+console.log('Douglas Lombard'.split(' '));
+
+const [firstName, lastName] = 'Douglas Lombard'.split(' ');
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+function capitalizename(name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+}
+
+capitalizename('jessica ann smit davis');
+capitalizename('douglas lombard');
+
+// Padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(25, '+').padEnd(30, '+'));
+
+// Real world example
+function maskCreditCard(number) {
+  // This works because if one operate is a string it will convert the other
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+}
+
+console.log(maskCreditCard(4316284));
+console.log(maskCreditCard(43194738456284));
+console.log(maskCreditCard('3462834612647'));
+
+// Repeat
+const message2 = 'Bad Weather...All Departues Delayed... ';
+console.log(message2.repeat(5));
+
+function planesInLine(n) {
+  console.log(`There are ${n} planes in line ${'N'.repeat(n)}`);
+}
+
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
+
+// ===================================
+// WORKING WITH STRINGS - PART 2
+// const airline = 'TAP Air Portugal';
+
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
 
 // Fix capitalization in name
 
-function fixPassengersName(name) {
-  const toLower = name.toLowerCase();
-  const passengerCorrect = toLower[0].toUpperCase() + toLower.slice(1);
-  return passengerCorrect;
-}
+// function fixPassengersName(name) {
+//   const toLower = name.toLowerCase();
+//   const passengerCorrect = toLower[0].toUpperCase() + toLower.slice(1);
+//   return passengerCorrect;
+// }
 
-console.log(fixPassengersName('dOugLas'));
+// console.log(fixPassengersName('dOugLas'));
 
 // Comparing emails
-const email = 'hello@douglas.io';
-const loginEmail = '   Hello@Douglas.io \n';
+// const email = 'hello@douglas.io';
+// const loginEmail = '   Hello@Douglas.io \n';
 
 // const lowerEmail = loginEmail.toLowerCase();
 // const trimmedEmail = lowerEmail.trim();
 
-const normalizedEmail = loginEmail.toLowerCase().trim();
-console.log(normalizedEmail);
-function checkingEmails(email1, email2) {
-  return email1 === email2;
-}
-console.log(checkingEmails(email, normalizedEmail));
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+// function checkingEmails(email1, email2) {
+//   return email1 === email2;
+// }
+// console.log(checkingEmails(email, normalizedEmail));
 
-// Replacing strings
-const priceGB = '288,97#';
-const priceUS = priceGB.replace('#', '$').replace(',', '.');
-console.log(priceUS);
+// // Replacing strings
+// const priceGB = '288,97#';
+// const priceUS = priceGB.replace('#', '$').replace(',', '.');
+// console.log(priceUS);
 
-const announcement =
-  'All passengers come to boarding door 23. Boarding door 23';
+// const announcement =
+//   'All passengers come to boarding door 23. Boarding door 23';
 
-console.log(announcement.replace('door', 'gate'));
-console.log(announcement.replaceAll('door', 'gate'));
+// console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'));
 
 // Using Reglular expression
-console.log(announcement.replace(/door/g, 'gate'));
+// console.log(announcement.replace(/door/g, 'gate'));
 
 // Booleans
-const plane = 'Airbus A320neo';
-console.log(plane.includes('A320'));
-console.log(plane.includes('Boeing'));
-console.log(plane.startsWith('Air'));
+// const plane = 'Airbus A320neo';
+// console.log(plane.includes('A320'));
+// console.log(plane.includes('Boeing'));
+// console.log(plane.startsWith('Air'));
 
-if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
-  console.log('Part of the New Airbus family');
-}
+// if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+//   console.log('Part of the New Airbus family');
+// }
 
 // Practice Exercise
-function checkBaggage(items) {
-  const baggage = items.toLowerCase();
-  if (baggage.includes('knife') || baggage.includes('gun')) {
-    console.log('You are not allowed on baord');
-  } else {
-    console.log('Welcome aboard!');
-  }
-}
+// function checkBaggage(items) {
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log('You are not allowed on baord');
+//   } else {
+//     console.log('Welcome aboard!');
+//   }
+// }
 
-checkBaggage('I have a laptop, some Food and a pocket Knife');
-checkBaggage('Shock and camera');
-checkBaggage('Got some snacks and a gun for protection');
+// checkBaggage('I have a laptop, some Food and a pocket Knife');
+// checkBaggage('Shock and camera');
+// checkBaggage('Got some snacks and a gun for protection');
 
 // ===================================
 // WORKING WITH STRINGS - PART 1
