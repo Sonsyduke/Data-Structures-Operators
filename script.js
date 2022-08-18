@@ -52,30 +52,72 @@ const restaurant = {
 };
 
 // ===================================
-// Maps: Iteration
-const question = new Map([
-  ['question', 'What is the best programming language in the world?'],
-  [1, 'C'],
-  [2, 'Java'],
-  [3, 'JavaScript'],
-  ['correct', 3],
-  [true, 'Correct'],
-  [false, 'Try again'],
-]);
-console.log(question);
+// WORKING WITH STRINGS - PART 1
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
 
-// Convert object to map
-console.log(Object.entries(hours));
-const hoursMap = new Map(Object.entries(hours));
-console.log(hoursMap);
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
 
-// Quiz app
-console.log(question.get('question'));
-for (const [key, value] of question) {
-  if (typeof key === 'number') {
-    console.log(`Answer ${key}: ${value}`);
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+function checkMiddleSeat(seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log('You got the middle seat :(');
+  } else {
+    console.log('You got lucky :)');
   }
 }
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+// JS converts the string to an object like this
+console.log(new String('jonas'));
+
+// ===================================
+// Maps: Iteration
+// const question = new Map([
+//   ['question', 'What is the best programming language in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct'],
+//   [false, 'Try again'],
+// ]);
+// console.log(question);
+
+// Convert object to map
+// console.log(Object.entries(hours));
+// const hoursMap = new Map(Object.entries(hours));
+// console.log(hoursMap);
+
+// Quiz app
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') {
+//     console.log(`Answer ${key}: ${value}`);
+//   }
+// }
 // const answer = Number(prompt('Your answer'));
 // console.log(answer);
 
@@ -89,10 +131,10 @@ for (const [key, value] of question) {
 // }
 
 // Convert map to array
-console.log([...question]);
+// console.log([...question]);
 // console.log(question.entries());
-console.log([...question.keys()]);
-console.log([...question.values()]);
+// console.log([...question.keys()]);
+// console.log([...question.values()]);
 
 // ===================================
 // Maps: Fundamentals
